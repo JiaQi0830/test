@@ -13,8 +13,8 @@ class coinController extends Controller
         $coinName = collect($coinResponse->json())->firstWhere('id', 'bitcoin');
         $USD_price = $this->getDetails('usd', 'bitcoin', 'current_price');
         $CNY_price = $this->getDetails('cny', 'bitcoin', 'current_price');
-        $USD_priceChange = $this->getDetails('cny', 'bitcoin', 'price_change_24h');
-        $USD_priceChangePercent = $this->getDetails('cny', 'bitcoin', 'price_change_percentage_24h');
+        $USD_priceChange = $this->getDetails('usd', 'bitcoin', 'price_change_24h');
+        $USD_priceChangePercent = $this->getDetails('usd', 'bitcoin', 'price_change_percentage_24h');
         
         return view('coin',compact('coinName', 'USD_price', 'CNY_price', 'USD_priceChange', 'USD_priceChangePercent'));
     }
